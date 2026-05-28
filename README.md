@@ -178,6 +178,52 @@ This generates a detailed `docs/CODEBASE.md` that keeps your team synchronized o
 
 ---
 
+## 💻 Step-by-Step CLI Command Flow
+
+Once initialized, developers can invoke the CLI's specialized commands directly:
+
+### 🔍 Codebase Scanning & Diagnostics
+*   **To scan exports and methods:**
+    ```bash
+    funcpilot scan src/
+    ```
+*   **To run code-smell and complexity analysis:**
+    ```bash
+    funcpilot analyze src/
+    ```
+
+### 🛠️ Test Generation & Execution
+*   **To auto-generate unit test spec boilerplates:**
+    ```bash
+    funcpilot generate-tests src/
+    ```
+*   **To execute test suites:**
+    ```bash
+    funcpilot run
+    ```
+*   **To see coverage metrics:**
+    ```bash
+    funcpilot coverage
+    ```
+
+### 📖 Codebase Documentation
+*   **To auto-compile codebase markdown documentation:**
+    ```bash
+    funcpilot docs
+    ```
+
+### 💡 Interactive Help Triggers
+If developers ever get stuck or want to see what options and arguments a command supports, they can type:
+```bash
+funcpilot --help
+```
+or target a specific command's help:
+```bash
+funcpilot scan --help
+```
+
+---
+
 ## ⚡ Technical Architecture
 
 FuncPilot leverages a highly modular and extensible system:

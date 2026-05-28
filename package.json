@@ -1,6 +1,6 @@
 {
   "name": "funcpilot",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "",
   "main": "index.js",
   "files": [
@@ -63,7 +63,7 @@
     "typescript-eslint": "^8.60.0"
   },
   "bin": {
-    "funcpilot": "./dist/cli/index.js"
+    "funcpilot": "dist/cli/index.js"
   },
   "lint-staged": {
     "*.{ts,js}": [

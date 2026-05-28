@@ -72,6 +72,37 @@
       <a href="#getting-started" class="btn-primary">Get Started</a>
       <a href="#terminal" class="btn-secondary">Try Live Demo</a>
     </div>
+
+    <!-- Hero Terminal Mock (With the ASCII Art Logo) -->
+    <div class="hero-terminal scroll-reveal">
+      <div class="terminal-header">
+        <div class="terminal-controls">
+          <span class="terminal-dot red"></span>
+          <span class="terminal-dot yellow"></span>
+          <span class="terminal-dot green"></span>
+        </div>
+        <div class="terminal-title">sujoymoulick@funcpilot: ~</div>
+        <div><i class="fa-solid fa-terminal" style="color: var(--text-dim);"></i></div>
+      </div>
+      <div class="terminal-body hero-terminal-body">
+        <pre class="ascii-logo">███████╗██╗   ██╗███╗   ██╗ ██████╗██████╗ ██╗██╗      ██████╗ ████████╗
+██╔════╝██║   ██║████╗  ██║██╔════╝██╔══██╗██║██║     ██╔═══██╗╚══██╔══╝
+█████╗  ██║   ██║██╔██╗ ██║██║     ██████╔╝██║██║     ██║   ██║   ██║   
+██╔══╝  ██║   ██║██║╚██╗██║██║     ██╔═══╝ ██║██║     ██║   ██║   ██║   
+██║     ╚██████╔╝██║ ╚████║╚██████╗██║     ██║███████╗╚██████╔╝   ██║   
+╚═╝      ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝╚═╝     ╚═╝╚══════╝ ╚═════╝    ╚═╝   </pre>
+        <div class="terminal-welcome-text">
+          <span style="color: #ff3333; font-weight: bold;">sujoymoulick@funcpilot</span> <span style="color: #fff;">~</span> <span style="color: #00ff00;">$</span> funcpilot
+          
+          <span style="color: #00ffcc; font-weight: bold;">   Smart Offline Testing CLI for Developers</span>
+          
+          <span style="color: #00ff00;">✔</span> FuncPilot installed successfully!
+          
+          <span style="color: #888;">[Info] Ready to run local-first diagnostics.</span>
+          <span style="color: #ffaa00;">Try running:</span> <span style="color: #fff; font-weight: bold;">funcpilot init</span>
+        </div>
+      </div>
+    </div>
     
     <div class="scroll-indicator" onclick="document.getElementById('features').scrollIntoView();">
       <span></span>
@@ -279,6 +310,135 @@
     </div>
   </section>
 
+  <!-- Step-by-Step CLI Command Flow Section (Diagram Inspired Layout) -->
+  <section id="command-flow" style="background: rgba(18, 4, 4, 0.45); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+    <div class="section-header scroll-reveal">
+      <h2>Step-by-Step CLI Command Flow</h2>
+      <p>Once initialized, developers can invoke the CLI's specialized commands directly in their workspace.</p>
+    </div>
+    
+    <div class="install-container">
+      
+      <!-- Command 1: Scan -->
+      <div class="step-card scroll-reveal">
+        <div class="step-num" style="border-radius: 8px;"><i class="fa-solid fa-folder-open"></i></div>
+        <div class="step-content">
+          <h3>To scan exports and methods:</h3>
+          <div class="code-block-wrapper">
+            <div class="code-block-header">
+              <span>Terminal</span>
+              <button class="copy-btn" onclick="copyCode('funcpilot scan src/', this)">Copy <i class="fa-regular fa-copy"></i></button>
+            </div>
+            <pre class="code-block">funcpilot scan src/</pre>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Command 2: Analyze -->
+      <div class="step-card scroll-reveal">
+        <div class="step-num" style="border-radius: 8px;"><i class="fa-solid fa-chart-line"></i></div>
+        <div class="step-content">
+          <h3>To run code-smell and complexity analysis:</h3>
+          <div class="code-block-wrapper">
+            <div class="code-block-header">
+              <span>Terminal</span>
+              <button class="copy-btn" onclick="copyCode('funcpilot analyze src/', this)">Copy <i class="fa-regular fa-copy"></i></button>
+            </div>
+            <pre class="code-block">funcpilot analyze src/</pre>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Command 3: Generate -->
+      <div class="step-card scroll-reveal">
+        <div class="step-num" style="border-radius: 8px;"><i class="fa-solid fa-code-fork"></i></div>
+        <div class="step-content">
+          <h3>To auto-generate unit test spec boilerplates:</h3>
+          <div class="code-block-wrapper">
+            <div class="code-block-header">
+              <span>Terminal</span>
+              <button class="copy-btn" onclick="copyCode('funcpilot generate-tests src/', this)">Copy <i class="fa-regular fa-copy"></i></button>
+            </div>
+            <pre class="code-block">funcpilot generate-tests src/</pre>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Command 4: Run -->
+      <div class="step-card scroll-reveal">
+        <div class="step-num" style="border-radius: 8px;"><i class="fa-solid fa-play"></i></div>
+        <div class="step-content">
+          <h3>To execute test suites:</h3>
+          <div class="code-block-wrapper">
+            <div class="code-block-header">
+              <span>Terminal</span>
+              <button class="copy-btn" onclick="copyCode('funcpilot run', this)">Copy <i class="fa-regular fa-copy"></i></button>
+            </div>
+            <pre class="code-block">funcpilot run</pre>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Command 5: Coverage -->
+      <div class="step-card scroll-reveal">
+        <div class="step-num" style="border-radius: 8px;"><i class="fa-solid fa-bullseye"></i></div>
+        <div class="step-content">
+          <h3>To see coverage metrics:</h3>
+          <div class="code-block-wrapper">
+            <div class="code-block-header">
+              <span>Terminal</span>
+              <button class="copy-btn" onclick="copyCode('funcpilot coverage', this)">Copy <i class="fa-regular fa-copy"></i></button>
+            </div>
+            <pre class="code-block">funcpilot coverage</pre>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Command 6: Docs -->
+      <div class="step-card scroll-reveal">
+        <div class="step-num" style="border-radius: 8px;"><i class="fa-solid fa-book"></i></div>
+        <div class="step-content">
+          <h3>To auto-compile codebase markdown documentation:</h3>
+          <div class="code-block-wrapper">
+            <div class="code-block-header">
+              <span>Terminal</span>
+              <button class="copy-btn" onclick="copyCode('funcpilot docs', this)">Copy <i class="fa-regular fa-copy"></i></button>
+            </div>
+            <pre class="code-block">funcpilot docs</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Help Section Inside Command Flow -->
+      <div class="step-card scroll-reveal" style="border-color: rgba(255, 170, 0, 0.25); background: rgba(255, 170, 0, 0.01);">
+        <div class="step-num" style="color: #ffaa00; border-color: rgba(255,170,0,0.3); background: rgba(255,170,0,0.08); border-radius: 8px;"><i class="fa-regular fa-lightbulb"></i></div>
+        <div class="step-content">
+          <h3 style="color: #ffaa00;">💡 Interactive Help Triggers</h3>
+          <p style="color: var(--text-muted); margin-bottom: 20px;">If developers ever get stuck or want to see what options and arguments a command supports, they can type:</p>
+          
+          <div class="code-block-wrapper" style="margin-bottom: 16px;">
+            <div class="code-block-header">
+              <span>Terminal</span>
+              <button class="copy-btn" onclick="copyCode('funcpilot --help', this)">Copy <i class="fa-regular fa-copy"></i></button>
+            </div>
+            <pre class="code-block" style="color: #ffcc66;">funcpilot --help</pre>
+          </div>
+          
+          <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 0.9rem;">Or target a specific command's help:</p>
+          
+          <div class="code-block-wrapper">
+            <div class="code-block-header">
+              <span>Terminal</span>
+              <button class="copy-btn" onclick="copyCode('funcpilot scan --help', this)">Copy <i class="fa-regular fa-copy"></i></button>
+            </div>
+            <pre class="code-block" style="color: #ffcc66;">funcpilot scan --help</pre>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
   <!-- Developer Bio & Project Resources -->
   <section id="developer">
     <div class="section-header scroll-reveal">
@@ -294,9 +454,9 @@
         <h3>Sujoy Moulick</h3>
         <p class="title">Lead Creator</p>
         <div class="dev-links">
-          <a href="https://github.com/sujoymoulick" target="_blank" class="dev-link-btn"><i class="fa-brands fa-github"></i></a>
-          <a href="#" class="dev-link-btn"><i class="fa-brands fa-linkedin-in"></i></a>
-          <a href="#" class="dev-link-btn"><i class="fa-regular fa-envelope"></i></a>
+          <a href="https://github.com/Sujoymoulick" target="_blank" class="dev-link-btn" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/sujoymoulick/" target="_blank" class="dev-link-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="mailto:sujoymoulick05@gmail.com" class="dev-link-btn" aria-label="Email"><i class="fa-regular fa-envelope"></i></a>
         </div>
       </div>
       

@@ -24,6 +24,7 @@ program
   .version('1.0.0')
   .hook('preAction', async (thisCommand, actionCommand) => {
     try {
+      displayBanner();
       await setupConfig();
     } catch (error) {
       logger.error('Failed to load configuration.', error);

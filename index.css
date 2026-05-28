@@ -236,6 +236,10 @@ body {
   transform: translateY(-2px);
 }
 
+.menu-toggle {
+  display: none;
+}
+
 /* Hero Section */
 .hero {
   min-height: 100vh;
@@ -1134,6 +1138,55 @@ section {
   font-size: 0.75rem;
 }
 
+/* Hero Terminal Mock with ASCII Logo */
+.hero-terminal {
+  max-width: 760px;
+  width: 100%;
+  background: var(--terminal-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  text-align: left;
+  margin-bottom: 50px;
+  transition: var(--transition-smooth);
+}
+
+.hero-terminal:hover {
+  border-color: var(--border-color-hover);
+  box-shadow: 0 0 30px rgba(255, 51, 51, 0.08), 0 30px 60px rgba(0, 0, 0, 0.7);
+  transform: translateY(-3px);
+}
+
+.hero-terminal-body {
+  padding: 24px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9rem;
+  min-height: auto;
+  color: #ded0d0;
+}
+
+.ascii-logo {
+  font-family: 'JetBrains Mono', monospace;
+  color: #ff3333;
+  font-size: 0.75rem;
+  line-height: 1.1;
+  text-align: left;
+  margin-bottom: 20px;
+  overflow-x: auto;
+  white-space: pre;
+  background: linear-gradient(to right, #4285F4 0%, #9b72cb 50%, #d96570 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.terminal-welcome-text {
+  line-height: 1.6;
+}
+
 /* Reveal on Scroll Animations */
 .scroll-reveal {
   opacity: 0;
@@ -1158,35 +1211,52 @@ section {
   .navbar {
     padding: 15px 6%;
   }
-  
   .navbar.scrolled {
-    padding: 12px 6%;
+    padding: 10px 6%;
+  }
+  .nav-brand {
+    order: 2;
+    margin-right: auto;
   }
 
-  /* Hamburger Menu Toggle Styles */
+  /* Three Dots Menu Toggle Styles (Left side) */
   .menu-toggle {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
     width: 24px;
-    height: 16px;
+    height: 20px;
     background: transparent;
     border: none;
     cursor: pointer;
     z-index: 101;
+    order: 1;
+    margin-right: 15px;
   }
 
   .menu-toggle span {
-    width: 100%;
-    height: 2px;
+    width: 5px;
+    height: 5px;
     background-color: var(--text-main);
-    border-radius: 2px;
+    border-radius: 50%;
     transition: var(--transition-smooth);
   }
 
-  /* Animated X State */
+  /* Animated X State - Dots morph into centered lines */
+  .menu-toggle.active {
+    justify-content: center;
+  }
+
+  .menu-toggle.active span {
+    border-radius: 2px;
+    width: 18px;
+    height: 2px;
+    position: absolute;
+  }
+
   .menu-toggle.active span:nth-child(1) {
-    transform: translateY(7px) rotate(45deg);
+    transform: rotate(45deg);
   }
 
   .menu-toggle.active span:nth-child(2) {
@@ -1194,7 +1264,7 @@ section {
   }
 
   .menu-toggle.active span:nth-child(3) {
-    transform: translateY(-7px) rotate(-45deg);
+    transform: rotate(-45deg);
   }
 
   /* Nav Links mobile overlay */
@@ -1383,9 +1453,21 @@ section {
   .circles-decor {
     display: none;
   }
-}
 
-/* Additional utility to hide menu-toggle by default on desktop */
-.menu-toggle {
-  display: none;
+  /* Hero Terminal Mobile */
+  .hero-terminal {
+    margin-bottom: 30px;
+    border-radius: 8px;
+  }
+  
+  .hero-terminal-body {
+    padding: 16px;
+    font-size: 0.75rem;
+  }
+  
+  .ascii-logo {
+    font-size: 1.6vw;
+    line-height: 1.15;
+    margin-bottom: 12px;
+  }
 }
