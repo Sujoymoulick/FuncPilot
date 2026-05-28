@@ -1,0 +1,12 @@
+{
+  "testFramework": "vitest",
+  "outputDirectory": "test foulder",
+  "autoRunTests": true,
+  "ignoredFolders": [
+    "node_modules",
+    "dist",
+    "build",
+    "coverage",
+    ".git"
+  ]
+}

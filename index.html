@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="FuncPilot - An Intelligent, 100% Offline Unit Testing and Codebase Diagnostics CLI for Modern JavaScript & TypeScript.">
+  <title>FuncPilot | Intelligent Offline Unit Testing CLI</title>
+  
+  <!-- Link to the external premium stylesheet -->
+  <link rel="stylesheet" href="index.css">
+  
+  <!-- FontAwesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Mesh Gradient Background & Noise Grain Overlay -->
+  <div class="mesh-bg"></div>
+  <div class="grain-overlay"></div>
+  <div class="grid-lines"></div>
+
+  <!-- Concentric Rings SVG Background Decor -->
+  <svg class="circles-decor" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="50" cy="50" r="45" fill="none" stroke="rgba(255, 51, 51, 0.05)" stroke-width="0.5" stroke-dasharray="1 1"/>
+    <circle cx="50" cy="50" r="35" fill="none" stroke="rgba(255, 51, 51, 0.04)" stroke-width="0.5"/>
+    <circle cx="50" cy="50" r="25" fill="none" stroke="rgba(255, 255, 255, 0.02)" stroke-width="0.5" stroke-dasharray="2 2"/>
+    <circle cx="50" cy="50" r="15" fill="none" stroke="rgba(255, 51, 51, 0.03)" stroke-width="0.5"/>
+  </svg>
+  
+  <svg class="circles-decor bottom-right" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="50" cy="50" r="45" fill="none" stroke="rgba(255, 51, 51, 0.05)" stroke-width="0.5"/>
+    <circle cx="50" cy="50" r="35" fill="none" stroke="rgba(255, 255, 255, 0.02)" stroke-width="0.5" stroke-dasharray="3 3"/>
+    <circle cx="50" cy="50" r="25" fill="none" stroke="rgba(255, 51, 51, 0.04)" stroke-width="0.5"/>
+  </svg>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar" id="navbar">
+    <a href="#" class="nav-brand">
+      <span>FuncPilot</span>
+    </a>
+    
+    <ul class="nav-links">
+      <li><a href="#features">Features</a></li>
+      <li><a href="#terminal">Interactive CLI</a></li>
+      <li><a href="#architecture">Architecture</a></li>
+      <li><a href="#getting-started">Installation</a></li>
+      <li><a href="#developer">Developer</a></li>
+    </ul>
+    
+    <a href="#getting-started" class="nav-cta">Install CLI</a>
+
+    <!-- Hamburger menu toggle for mobile responsiveness -->
+    <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Navigation Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="hero-tag">
+      <i class="fa-solid fa-shield-halved"></i>
+      <span>100% Offline & Private Testing</span>
+    </div>
+    
+    <h1>Local-First Code Testing, <br>Reimagined.</h1>
+    
+    <p class="lead">Zero API Keys. Zero Cloud Costs. Scan TypeScript and JavaScript codebases, analyze complexity, and generate high-fidelity unit tests instantly right from your terminal.</p>
+    
+    <div class="hero-actions">
+      <a href="#getting-started" class="btn-primary">Get Started</a>
+      <a href="#terminal" class="btn-secondary">Try Live Demo</a>
+    </div>
+    
+    <div class="scroll-indicator" onclick="document.getElementById('features').scrollIntoView();">
+      <span></span>
+      Scroll To Explore
+    </div>
+  </header>
+
+  <!-- Intro Text Area Section (Diagram Inspired Layout) -->
+  <section class="intro-section scroll-reveal" id="features">
+    <div class="intro-container">
+      <span class="intro-label">Intelligence. Offline. Private.</span>
+      <h2>Secure Offline Codebase Diagnostics & Testing</h2>
+      <p>FuncPilot parses and analyzes your JavaScript & TypeScript code structures locally, building absolute privacy barriers. It detects code smells, calculates complex block depths, and compiles high-fidelity Jest and Vitest suites—without calling any external servers, without requiring API keys, and at 10x the speed of cloud-based engines.</p>
+    </div>
+  </section>
+
+  <!-- Three Columns Grid Layout (Diagram Inspired Layout - Box 1 | Box 2 | Box 3) -->
+  <section class="boxes-section">
+    <div class="boxes-container">
+      
+      <!-- Box 1: Scan & Parse AST -->
+      <div class="layout-box scroll-reveal">
+        <div class="box-badge">01</div>
+        <div class="box-icon"><i class="fa-solid fa-code"></i></div>
+        <h3>Scan & Parse AST</h3>
+        <p>FuncPilot scans project files recursively using high-speed static glob tools. It constructs abstract syntax tree (AST) profiles using @babel/parser and ts-morph, indexing classes, methods, constructors, parameters, and async profiles natively.</p>
+        <ul class="box-features">
+          <li><i class="fa-solid fa-check"></i> High-speed AST profiling</li>
+          <li><i class="fa-solid fa-check"></i> Maps recursive exports</li>
+          <li><i class="fa-solid fa-check"></i> Dynamic glob file routing</li>
+        </ul>
+      </div>
+      
+      <!-- Box 2: Diagnose Code Quality -->
+      <div class="layout-box scroll-reveal">
+        <div class="box-badge">02</div>
+        <div class="box-icon"><i class="fa-solid fa-bug-slash"></i></div>
+        <h3>Diagnose Code Quality</h3>
+        <p>Runs structural metrics analysis on your methods and functions. Natively flags code smells, high complexity scores, oversized functions, and high parameter levels with immediate actionable refactoring suggestions.</p>
+        <ul class="box-features">
+          <li><i class="fa-solid fa-check"></i> Automated complexity rules</li>
+          <li><i class="fa-solid fa-check"></i> Refactoring warnings & hints</li>
+          <li><i class="fa-solid fa-check"></i> Zero configuration needed</li>
+        </ul>
+      </div>
+      
+      <!-- Box 3: Generate & Run Specs -->
+      <div class="layout-box scroll-reveal">
+        <div class="box-badge">03</div>
+        <div class="box-icon"><i class="fa-solid fa-microchip"></i></div>
+        <h3>Generate & Run Specs</h3>
+        <p>Generates mock-ready, clean Jest or Vitest boilerplates matching your method signatures. Launches unified local child processes via Execa, executing tests dynamically and formatting terminal coverage reports.</p>
+        <ul class="box-features">
+          <li><i class="fa-solid fa-check"></i> Mocks matching imports</li>
+          <li><i class="fa-solid fa-check"></i> Unified Jest / Vitest integration</li>
+          <li><i class="fa-solid fa-check"></i> Interactive CLI dashboard</li>
+        </ul>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- Interactive Terminal Section -->
+  <section id="terminal" style="background: rgba(0,0,0,0.2);">
+    <div class="section-header scroll-reveal">
+      <h2>Experience the Interactive Console</h2>
+      <p>Click the commands below to see FuncPilot in action, simulating offline scanning, generation, and testing.</p>
+    </div>
+    
+    <div class="terminal-wrapper scroll-reveal">
+      
+      <!-- Command selectors -->
+      <div class="terminal-nav">
+        <button class="terminal-tab active" data-cmd="init">funcpilot init</button>
+        <button class="terminal-tab" data-cmd="scan">funcpilot scan</button>
+        <button class="terminal-tab" data-cmd="analyze">funcpilot analyze</button>
+        <button class="terminal-tab" data-cmd="generate">funcpilot generate-tests</button>
+        <button class="terminal-tab" data-cmd="run">funcpilot run</button>
+        <button class="terminal-tab" data-cmd="coverage">funcpilot coverage</button>
+        <button class="terminal-tab" data-cmd="docs">funcpilot docs</button>
+      </div>
+      
+      <!-- The Terminal Box -->
+      <div class="terminal-box">
+        <div class="terminal-header">
+          <div class="terminal-controls">
+            <span class="terminal-dot red"></span>
+            <span class="terminal-dot yellow"></span>
+            <span class="terminal-dot green"></span>
+          </div>
+          <div class="terminal-title">zsh — FuncPilot Interactive Console</div>
+          <div><i class="fa-solid fa-terminal" style="color: var(--text-dim);"></i></div>
+        </div>
+        <div class="terminal-body" id="terminal-screen"></div>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- Architecture Flowchart Section -->
+  <section id="architecture">
+    <div class="section-header scroll-reveal">
+      <h2>Pipeline Architecture</h2>
+      <p>Inside FuncPilot's highly modular and local-first static processing engine.</p>
+    </div>
+    
+    <div class="arch-container scroll-reveal">
+      <div class="arch-flow">
+        
+        <!-- Node 1 -->
+        <div class="arch-node">
+          <div class="arch-node-num">Step 1</div>
+          <h4>Source Files</h4>
+          <p>Local JS / TS codebases scanned by recursive glob crawlers.</p>
+        </div>
+        
+        <div class="arch-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+        
+        <!-- Node 2 -->
+        <div class="arch-node">
+          <div class="arch-node-num">Step 2</div>
+          <h4>AST Parser</h4>
+          <p>Uses @babel/parser and ts-morph to extract structural profiles.</p>
+        </div>
+        
+        <div class="arch-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+        
+        <!-- Node 3 -->
+        <div class="arch-node">
+          <div class="arch-node-num">Step 3</div>
+          <h4>Diagnostics Engine</h4>
+          <p>Checks complexity metrics and flags long code smell warning blocks.</p>
+        </div>
+        
+        <div class="arch-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+        
+        <!-- Node 4 -->
+        <div class="arch-node">
+          <div class="arch-node-num">Step 4</div>
+          <h4>Boilerplate Engine</h4>
+          <p>Generates mock-configured spec files for Jest or Vitest.</p>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- Getting Started & Installation Steps -->
+  <section id="getting-started" style="background: rgba(0,0,0,0.15);">
+    <div class="section-header scroll-reveal">
+      <h2>Start Testing Instantly</h2>
+      <p>Get up and running with the global FuncPilot CLI in less than a minute.</p>
+    </div>
+    
+    <div class="install-container">
+      
+      <!-- Step 1 -->
+      <div class="step-card scroll-reveal">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h3>Install Globally</h3>
+          <p>Download and register the CLI globally on your workstation via npm.</p>
+          <div class="code-block-wrapper">
+            <div class="code-block-header">
+              <span>Terminal</span>
+              <button class="copy-btn" onclick="copyCode('npm install -g funcpilot', this)">Copy <i class="fa-regular fa-copy"></i></button>
+            </div>
+            <pre class="code-block">npm install -g funcpilot</pre>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Step 2 -->
+      <div class="step-card scroll-reveal">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h3>Initialize Your Project</h3>
+          <p>Run the interactive setup wizard in your project root to auto-detect environments and create `.funcpilotrc`.</p>
+          <div class="code-block-wrapper">
+            <div class="code-block-header">
+              <span>Terminal</span>
+              <button class="copy-btn" onclick="copyCode('funcpilot init', this)">Copy <i class="fa-regular fa-copy"></i></button>
+            </div>
+            <pre class="code-block">funcpilot init</pre>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Step 3 -->
+      <div class="step-card scroll-reveal">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h3>Generate Tests</h3>
+          <p>Instantly scan your codebase and construct unit test templates inside your output directories.</p>
+          <div class="code-block-wrapper">
+            <div class="code-block-header">
+              <span>Terminal</span>
+              <button class="copy-btn" onclick="copyCode('funcpilot generate-tests src/', this)">Copy <i class="fa-regular fa-copy"></i></button>
+            </div>
+            <pre class="code-block">funcpilot generate-tests src/</pre>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- Developer Bio & Project Resources -->
+  <section id="developer">
+    <div class="section-header scroll-reveal">
+      <h2>Project Details & Context</h2>
+      <p>Developer credentials, open source resources utilized, and licensing information.</p>
+    </div>
+    
+    <div class="dev-container scroll-reveal">
+      <div class="dev-profile">
+        <div class="dev-avatar-wrapper">
+          <div class="dev-avatar">SM</div>
+        </div>
+        <h3>Sujoy Moulick</h3>
+        <p class="title">Lead Creator</p>
+        <div class="dev-links">
+          <a href="https://github.com/sujoymoulick" target="_blank" class="dev-link-btn"><i class="fa-brands fa-github"></i></a>
+          <a href="#" class="dev-link-btn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" class="dev-link-btn"><i class="fa-regular fa-envelope"></i></a>
+        </div>
+      </div>
+      
+      <div class="dev-info">
+        <h3>Building FuncPilot</h3>
+        <p class="bio">FuncPilot was created to provide developers with a fast, private, and zero-configuration environment for unit testing boilerplate setups. By parsing TypeScript and JavaScript files locally through abstract syntax trees (ASTs), it completely eliminates the need for slow AI networks or external API key dependencies, securing raw source codes with native privacy guidelines.</p>
+        
+        <div class="meta-grid">
+          <div class="meta-item">
+            <h4>License Type</h4>
+            <p>ISC License</p>
+          </div>
+          <div class="meta-item">
+            <h4>Codebase Language</h4>
+            <p>TypeScript (100%)</p>
+          </div>
+          <div class="meta-item">
+            <h4>Primary Dependencies</h4>
+            <p>Commander, ts-morph, @babel/parser, chalk, ora, fs-extra</p>
+          </div>
+          <div class="meta-item">
+            <h4>Test Runner Support</h4>
+            <p>Jest, Vitest</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="footer-left">
+      <a href="#" class="footer-logo">
+        <span>FuncPilot</span>
+      </a>
+      <p>&copy; 2026 FuncPilot. Built locally. All rights reserved.</p>
+    </div>
+    
+    <div class="footer-right">
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#terminal">Live Terminal</a></li>
+          <li><a href="#architecture">Architecture</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Github</h4>
+        <ul>
+          <li><a href="https://github.com/sujoymoulick" target="_blank">Creator Profile</a></li>
+          <li><a href="#getting-started">Getting Started</a></li>
+          <li><a href="#">CLI Codebase</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript logic for Scroll Animations & Terminal Simulation -->
+  <script>
+    // 1. Scroll-reveal intersection observer
+    const revealElements = document.querySelectorAll('.scroll-reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    revealElements.forEach(el => observer.observe(el));
+
+    // 2. Shrinking Navbar on scroll
+    window.addEventListener('scroll', () => {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // 3. Interactive Terminal Command Simulation
+    const terminalScreen = document.getElementById('terminal-screen');
+    const commandTabs = document.querySelectorAll('.terminal-tab');
+    
+    const cmdData = {
+      init: {
+        command: 'funcpilot init',
+        output: `<span style="color: #00ffcc; font-weight: bold;">🚀 FuncPilot Setup Wizard</span>
+<span style="color: #888;">[Info] Auto-detecting project environment...</span>
+Detected: <span style="color: #fff; font-weight: bold;">funcpilot-cli (TypeScript, tsconfig.json found)</span>
+
+<span style="color: #ff9900;">?</span> <span style="color: #fff; font-weight: bold;">Select test framework:</span> <span style="color: #00ffcc; font-weight: bold;">jest</span>
+<span style="color: #ff9900;">?</span> <span style="color: #fff; font-weight: bold;">Where should generated tests be stored?</span> <span style="color: #00ffcc; font-weight: bold;">tests/generated</span>
+<span style="color: #ff9900;">?</span> <span style="color: #fff; font-weight: bold;">Enable auto-run tests?</span> <span style="color: #00ffcc; font-weight: bold;">No</span>
+
+<span style="color: #00ff00;">✔</span> <span style="color: #00ff00;">Project initialized successfully!</span>
+Created <span style="color: #ff6666;">.funcpilotrc</span> config and <span style="color: #ff6666;">tests/generated/</span> output directory.`
+      },
+      scan: {
+        command: 'funcpilot scan src/',
+        output: `<span style="color: #888;">⠋ Scanning directory: src/...</span>
+<span style="color: #00ff00;">✔ Scan complete. Found 8 file modules.</span>
+
+<span style="color: #3399ff; font-weight: bold;">File: src/scanners/index.ts</span>
+  <span style="color: #00ff00;">✔</span> scanDirectory <span style="color: #888;">(async function)</span>
+
+<span style="color: #3399ff; font-weight: bold;">File: src/parsers/index.ts</span>
+  <span style="color: #00ff00;">✔</span> parseFile <span style="color: #888;">(async function)</span>
+
+<span style="color: #3399ff; font-weight: bold;">File: src/templates/index.ts</span>
+  <span style="color: #00ff00;">✔</span> generateJestTemplate <span style="color: #888;">(function)</span>
+  <span style="color: #00ff00;">✔</span> generateVitestTemplate <span style="color: #888;">(function)</span>`
+      },
+      analyze: {
+        command: 'funcpilot analyze src/',
+        output: `<span style="color: #888;">⠋ Analyzing codebase structures in src/...</span>
+<span style="color: #00ff00;">✔ Analysis complete. Found 2 warning smells.</span>
+
+<span style="color: #ff9900; font-weight: bold;">⚠ Function "parseFile" in src/parsers/index.ts</span>
+  Issue: Function is too long (64 lines)
+  Suggestion: <span style="color: #00ffcc;">Consider breaking it down into smaller, focused modules.</span>
+
+<span style="color: #ff9900; font-weight: bold;">⚠ Function "generateTestsForDirectory" in src/generators/index.ts</span>
+  Issue: Too many parameters (5 inputs detected)
+  Suggestion: <span style="color: #00ffcc;">Refactor inputs into a unified Option object.</span>
+
+<span style="color: #ff9900; font-weight: bold;">Found 2 issues across files.</span>`
+      },
+      generate: {
+        command: 'funcpilot generate-tests src/',
+        output: `<span style="color: #888;">⠋ Scanning src/ functions and generating suites...</span>
+<span style="color: #00ff00;">✔ Test suites generated successfully!</span>
+
+<span style="color: #888;">Created test boilerplate mapping:</span>
+  <span style="color: #00ff00;">+</span> <span style="color: #fff;">tests/generated/scanners.test.ts</span> <span style="color: #888;">(Created mock definitions)</span>
+  <span style="color: #00ff00;">+</span> <span style="color: #fff;">tests/generated/parsers.test.ts</span> <span style="color: #888;">(Mapped 2 exports)</span>
+  <span style="color: #00ff00;">+</span> <span style="color: #fff;">tests/generated/generators.test.ts</span> <span style="color: #888;">(Mocked glob utilities)</span>`
+      },
+      run: {
+        command: 'funcpilot run',
+        output: `<span style="color: #888;">⠋ Spawning Jest test runner...</span>
+<span style="color: #fff; background: #00ff00; padding: 2px 6px; font-weight: bold; color: #000;">PASS</span> <span style="color: #fff; font-weight: bold;">tests/generated/scanners.test.ts</span> (1.02s)
+  <span style="color: #00ff00;">✓</span> scanDirectory parses files recursively (6ms)
+
+<span style="color: #fff; background: #00ff00; padding: 2px 6px; font-weight: bold; color: #000;">PASS</span> <span style="color: #fff; font-weight: bold;">tests/generated/parsers.test.ts</span> (0.42s)
+  <span style="color: #00ff00;">✓</span> parseFile returns complete AST models (4ms)
+
+<span style="color: #fff; font-weight: bold;">Test Suites:</span> <span style="color: #00ff00; font-weight: bold;">2 passed</span>, 2 total
+<span style="color: #fff; font-weight: bold;">Tests:</span>       <span style="color: #00ff00; font-weight: bold;">2 passed</span>, 2 total
+<span style="color: #fff; font-weight: bold;">Time:</span>        1.85s, estimated 2s
+<span style="color: #00ff00;">✔ Tests executed successfully in local runner!</span>`
+      },
+      coverage: {
+        command: 'funcpilot coverage',
+        output: `<span style="color: #888;">⠋ Collecting code coverage reports...</span>
+<span style="color: #fff;">---------------------|---------|----------|---------|---------|-------------------</span>
+<span style="color: #fff;">File                 | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s </span>
+<span style="color: #fff;">---------------------|---------|----------|---------|---------|-------------------</span>
+<span style="color: #fff; font-weight: bold;">All files            |   92.31 |    85.18 |     100 |   92.31 |                   </span>
+ src/scanners/index  |     100 |      100 |     100 |     100 |                   
+ src/parsers/index   |   84.61 |       80 |     100 |   84.61 | 42-45             
+ src/generators/index|   90.90 |    75.00 |     100 |   90.90 | 12-14, 52         
+<span style="color: #fff;">---------------------|---------|----------|---------|---------|-------------------</span>
+<span style="color: #00ff00;">✔ Coverage report generated. View details in terminal above.</span>`
+      },
+      docs: {
+        command: 'funcpilot docs',
+        output: `<span style="color: #888;">⠋ Constructing Markdown docs from codebase map...</span>
+<span style="color: #00ff00;">✔ Documentation generated successfully!</span>
+Created markdown document: <span style="color: #00ffcc; text-decoration: underline;">docs/CODEBASE.md</span>`
+      }
+    };
+    
+    let currentTypingTimer = null;
+    
+    function simulateTerminal(cmdKey) {
+      if (currentTypingTimer) clearInterval(currentTypingTimer);
+      
+      const data = cmdData[cmdKey];
+      terminalScreen.innerHTML = '';
+      
+      // Render prompt and cursor
+      const promptLine = document.createElement('div');
+      promptLine.innerHTML = `<span style="color: #ff3333;">sujoymoulick@funcpilot</span> <span style="color: #fff;">~</span> <span style="color: #00ff00;">$</span> <span id="typing-span"></span><span class="cursor" style="font-weight: bold; animation: blink 1s infinite;">_</span>`;
+      terminalScreen.appendChild(promptLine);
+      
+      const typingSpan = document.getElementById('typing-span');
+      let charIdx = 0;
+      const fullCmd = data.command;
+      
+      // Typewriter effect
+      currentTypingTimer = setInterval(() => {
+        if (charIdx < fullCmd.length) {
+          typingSpan.textContent += fullCmd.charAt(charIdx);
+          charIdx++;
+        } else {
+          clearInterval(currentTypingTimer);
+          document.querySelector('.cursor').style.display = 'none';
+          
+          // Print outputs after a short pause
+          setTimeout(() => {
+            const outBlock = document.createElement('div');
+            outBlock.style.marginTop = '16px';
+            outBlock.innerHTML = data.output;
+            terminalScreen.appendChild(outBlock);
+            
+            // Auto scroll terminal to bottom
+            terminalScreen.scrollTop = terminalScreen.scrollHeight;
+          }, 350);
+        }
+      }, 35);
+    }
+    
+    // Tab switching event listeners
+    commandTabs.forEach(tab => {
+      tab.addEventListener('click', (e) => {
+        commandTabs.forEach(t => t.classList.remove('active'));
+        e.target.classList.add('active');
+        simulateTerminal(e.target.dataset.cmd);
+      });
+    });
+    
+    // Auto-blink cursor style
+    const styleElem = document.createElement('style');
+    styleElem.innerHTML = `
+      @keyframes blink {
+        50% { opacity: 0; }
+      }
+    `;
+    document.head.appendChild(styleElem);
+    
+    // Start terminal on 'init' when page loads
+    window.addEventListener('load', () => {
+      simulateTerminal('init');
+    });
+
+    // 4. Copy-to-clipboard functionality
+    function copyCode(text, btnElement) {
+      navigator.clipboard.writeText(text).then(() => {
+        const originalHTML = btnElement.innerHTML;
+        btnElement.innerHTML = `Copied! <i class="fa-solid fa-check" style="color: #00ff00;"></i>`;
+        btnElement.style.color = '#00ff00';
+        
+        setTimeout(() => {
+          btnElement.innerHTML = originalHTML;
+          btnElement.style.color = '';
+        }, 2000);
+      });
+    }
+
+    // 5. Mobile Hamburger Navigation Toggle Logic
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('active');
+        navLinks.classList.toggle('active');
+      });
+
+      // Close menu when clicking a link
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+          menuToggle.classList.remove('active');
+          navLinks.classList.remove('active');
+        });
+      });
+    }
+  </script>
+</body>
+</html>
